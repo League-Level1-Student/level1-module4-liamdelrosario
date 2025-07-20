@@ -47,9 +47,17 @@ public class Jeopardy implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		quizPanel = new JPanel();
 		frame.setLayout(new BorderLayout());
-		//JPanel panel = new JPanel();
+		JPanel panelHeader = new JPanel();
 		frame.setVisible(true);
-		createHeader(Panel);
+		
+		createHeader("science");
+		
+		frame.add(panelHeader);
+		firstButton=createButton("500 cigaretts");
+		secondButton=createButton("400 cigaretts");
+		panelHeader.add(firstButton);
+		panelHeader.add(secondButton);
+
 		
 		// 1. Make the frame show up
 
@@ -83,7 +91,7 @@ public class Jeopardy implements ActionListener {
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
 		 */
-		
+
 		frame.pack();
 		quizPanel.setLayout(new GridLayout(buttonCount + 1, 3));
 		frame.add(makeScorePanel(), BorderLayout.NORTH);
@@ -93,17 +101,24 @@ public class Jeopardy implements ActionListener {
 
 
 	private JButton createButton(String dollarAmount) {
-		
-		// Create a new JButton
 
+		// Create a new JButton
+		JButton b= new JButton();
+		b.setText((dollarAmount)+" cigarette");
+		//JButton button1= new JButton("500 cigaretts");
 		// Set the text of the button to the dollarAmount
+		//JButton button2= new JButton("400 cigaretts");
 
 		// Increment the buttonCount (this should make the layout vertical)
 
 		// Return your new button instead of the temporary button
+		
+		return new JButton("500 cigaretts");
+		return new JButton1("500 cigaretts");
 
-		return new JButton("temporary button");
+
 	}
+	
 
 	@Override
     public void actionPerformed(ActionEvent e) {

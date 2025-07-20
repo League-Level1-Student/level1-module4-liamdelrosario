@@ -17,7 +17,7 @@ import javax.swing.JLabel;
 
 public class BookOfIllusions extends MouseAdapter {
 
-	// 1. Make a JFrame variable and initialize it using "new JFrame()"
+		// 1. Make a JFrame variable and initialize it using "new JFrame()"
 
 	public void run() {
 		// 2. make the frame visible
