@@ -154,10 +154,10 @@ fifthButton.addActionListener(this);
 		if (thirdButton==buttonPressed) {
 			askQuestion("What day of the week did the former ceo of youtube died","friday",300);
 		}
-		if (thirdButton==buttonPressed) {
+		if (fourthButton==buttonPressed) {
 			askQuestion("How many kids did John Tyler the president had with his two wifes","15",200);
 		}
-		if (fourthButton==buttonPressed) {
+		if (fifthButton==buttonPressed) {
 			askQuestion("Which interstate did I buried Charles McGregor in the year of 2004","interstate 10",100);
 		}
 			// Call the askQuestion() method
