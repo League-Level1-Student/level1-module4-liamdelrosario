@@ -45,7 +45,7 @@ public class Jeopardy implements ActionListener {
 
 
 	public void run() {
-		JFrame frame = new JFrame("Jeopardy");
+		JFrame frame = new JFrame("Jeoprady");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		quizPanel = new JPanel();
 		frame.setLayout(new BorderLayout());

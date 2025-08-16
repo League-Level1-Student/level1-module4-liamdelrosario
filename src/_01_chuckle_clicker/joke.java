@@ -21,7 +21,6 @@ public class joke {
 		panel.add(button1);
 		panel.add(button2);
 		frame.setSize(500, 500);
-		frame.pack();
 		button1.addActionListener(e-> System.out.println("imagine clicking joke"));
 		button1.addActionListener(e-> JOptionPane.showMessageDialog(null, "Why did the chicken cross the road"));
 		button2.addActionListener(e-> System.out.println("hi"));
