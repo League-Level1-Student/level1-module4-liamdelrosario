@@ -146,7 +146,7 @@ fifthButton.addActionListener(this);
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
 		if (firstButton==buttonPressed) {
-			askQuestion("What is 5*5+2^2(80+90)-70","635",500);
+			askQuestion("What is 5*5+2^2*(80+90)-70","635",500);
 		}
 		if (secondButton==buttonPressed) {
 			askQuestion("What year was emperor king Charlemagne crowned","800",400);
