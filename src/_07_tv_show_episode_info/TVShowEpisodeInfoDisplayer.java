@@ -9,13 +9,44 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.print.Printable;
 
-public class TVShowEpisodeInfoDisplayer {
-	
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class TVShowEpisodeInfoDisplayer implements ActionListener {
+	JButton submitButton;
+	JFrame frame = new JFrame("Tvshow.info");
+	JPanel panel = new JPanel();		
+	JTextField text = new JTextField();
+	JTextField text1 = new JTextField();
+	JLabel label = new JLabel();
+
 	public TVShowEpisodeInfoDisplayer() {
+		frame.setSize(400,100);
+		submitButton = new JButton("submit");
+		frame.add(panel);
+		panel.add(text);
+		text.setColumns(20);
+		panel.add(submitButton);
+		submitButton.setSize(50, 50);
+		submitButton.addActionListener(this);
+		frame.setVisible(true);
+	}
+	public void actionPerformed(ActionEvent e) {
+		String showName = text.getText();
+		JButton buttonPressed = (JButton) e.getSource();
+		if(buttonPressed == submitButton) {
+			String name =getShowEpisodeData(showName);
+			JOptionPane.showMessageDialog(null, name);
+		}
 		
 	}
-
 	
 	
 	
