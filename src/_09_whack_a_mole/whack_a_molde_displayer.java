@@ -1,7 +1,10 @@
 package _09_whack_a_mole;
 
+import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,7 +21,9 @@ public class whack_a_molde_displayer implements ActionListener {
 	JTextField text = new JTextField();
 	JLabel label = new JLabel();
 	JButton[] buttons = new JButton[24];
-
+	int moleWhacked = 0;
+	int guttersWhacked = 0;
+	Date moleTimes;
 	public whack_a_molde_displayer() {
 		frame.setSize(300, 400);
 
@@ -30,12 +35,14 @@ public class whack_a_molde_displayer implements ActionListener {
 		}
 		drawButton();
 		frame.setVisible(true);
+		moleTimes = new Date();
 	}
-int moleWhacked = 0;
+	
+
 	public void drawButton() {
 		Random random = new Random();
 		int randomInt = random.nextInt(24);
-		System.out.println(randomInt);
+//		System.out.println(randomInt);
 		for(int i=0; i<24; i++ ) {
 			buttons[i].setText("( )"); 
 			if(i == randomInt) {
@@ -52,8 +59,22 @@ int moleWhacked = 0;
 		if (moleLabel.equals("Mole")) {
 			moleWhacked+=1;
 			drawButton();
+			playSound("me-gusta.wav");
 			System.out.println(moleWhacked);
 		}
+		if (moleLabel.equals("( )")) {
+			guttersWhacked += 1;
+			drawButton();
+			System.out.println("You missed, you apathetic dingleberry");
+			if(guttersWhacked ==5) {
+				youSuck(guttersWhacked);
+			}
+		}
+			
+			if (moleWhacked == 10) {
+				endGame(moleTimes, moleWhacked);
+			}
+		
 	}
 
 	static void speak(String words) {
@@ -78,6 +99,16 @@ int moleWhacked = 0;
 		Date timeAtEnd = new Date();
 		JOptionPane.showMessageDialog(null, "Your whack rate is "
 				+ ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked) + " moles per second.");
+		System.exit(0);
 	}
+	private void youSuck( int guttersWhacked) {
+		JOptionPane.showMessageDialog(null, "You sucked. Do you know how many gutters you hit? Five. You are truly an apathetice dingleberry.");
+		System.exit(0);
+	}
+	private void playSound(String fileName) { 
+	    AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
+	    sound.play();
+	}
+
 
 }
