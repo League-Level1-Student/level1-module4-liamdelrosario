@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -45,6 +46,7 @@ private JLabel createLabelImage(String fileName) {
 		Icon icon = new ImageIcon(imageURL);
 		imageLabel.setIcon(icon);
 	}
+
 	return imageLabel;
 }
 
@@ -84,6 +86,51 @@ public void actionPerformed(ActionEvent e) {
 	panel.remove(label2);
 	panel.remove(label3);
 	// TODO: use random numbers to switch through diffrnent values you could see
+	Random random = new Random();
+	int randomInt = random.nextInt(3);
+	int randomInt1 = random.nextInt(3);
+	int randomInt2 = random.nextInt(3);
+if (randomInt == 0) {
+	label=createLabelImage("orange.png");
+	panel.add(label);
+}
+else if (randomInt == 1) {
+	label=createLabelImage("cherry.png");
+	panel.add(label);
+}
+else if (randomInt == 2) {
+	label=createLabelImage("banana.png");
+	panel.add(label);
+}
+if (randomInt1 == 0) {
+	label2=createLabelImage("orange.png");
+	panel.add(label2);
+}
+else if (randomInt1 == 1) {
+	label2=createLabelImage("cherry.png");
+	panel.add(label2);
+}
+else if (randomInt1 == 2) {
+	label2=createLabelImage("banana.png");
+	panel.add(label2);
+}
+if (randomInt2 == 0) {
+	label3=createLabelImage("orange.png");
+	panel.add(label3);
+}
+else if (randomInt2 == 1) {
+	label3=createLabelImage("cherry.png");
+	panel.add(label3);
+}
+else if (randomInt2 == 2) {
+	label3=createLabelImage("banana.png");
+	panel.add(label3);
+}
+	System.out.println(randomInt);
+if(randomInt==randomInt1 && randomInt1==randomInt2) {
+	System.out.println("You won!!!! :P");
+}
 	panel.repaint();
+	frame.pack();
 }
 }
