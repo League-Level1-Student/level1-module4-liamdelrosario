@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,6 +28,7 @@ public class LightsOut implements MouseListener {
 	JPanel panel = new JPanel();
 	JTextField text = new JTextField();
 	JLabel[] label = new JLabel[25];
+	JButton[] button = new JButton[25];
 	public LightsOut() {
 
 		/** PART 1. CREATE YOUR LIGHT BOARD **/
@@ -38,9 +40,20 @@ public class LightsOut implements MouseListener {
 			String labelNum ="0";
 		for(int i=0; i<=24; i++ ) {
 			
-			label[i] = new JLabel(""+i);
-			label[i].addAncestorListener(null);
+			label[i] = new JLabel();
+			button[i] = new JButton();
+			label[i].setText(""+i);
+			label[i].setOpaque(true);
+			label[i].setBackground(Color.LIGHT_GRAY);
+			
 			panel.add(label[i]);
+			/*			button[i] = new JButton();
+			button[i].setText(""+i);
+			button[i].setOpaque(true);
+			button[i].setBackground(Color.LIGHT_GRAY);
+			button[i].addActionListener(this);
+			panel.add(button[i]);
+*/	
 			
 		}
 			//3. Use setText() to add a position number to each light (0-24).
