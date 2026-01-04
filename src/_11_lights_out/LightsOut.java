@@ -37,16 +37,20 @@ public class LightsOut implements MouseListener {
 		
 			//2. Add 25 JLabels to your gamePanel (these are your lights)
 		panel.setLayout(grid);
+
 			String labelNum ="0";
 		for(int i=0; i<=24; i++ ) {
 			
 			label[i] = new JLabel();
 			button[i] = new JButton();
 			label[i].setText(""+i);
+			
+			
 			label[i].setOpaque(true);
 			label[i].setBackground(Color.LIGHT_GRAY);
 			
 			panel.add(label[i]);
+			label[i].addMouseListener(this);
 			/*			button[i] = new JButton();
 			button[i].setText(""+i);
 			button[i].setOpaque(true);
@@ -81,9 +85,11 @@ public class LightsOut implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		/** PART 2: TOGGLE NEIGHBORING LIGHTS **/
 		// 1. Get the light that was clicked on `(JLabel) e.getSource`
-
+		JLabel labelClicked=(JLabel) e.getSource();
 		// 2. Get the number (position) of the light
-
+		String text = labelClicked.getText();
+		Integer.parseInt(text);
+		System.out.println(text);
 		// 3. Now use the makeMove method to code which lights turn on and off.
 
 		// 4.Check if the player has won (e.g. all the lights are off)
