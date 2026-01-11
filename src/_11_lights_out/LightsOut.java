@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,7 +26,6 @@ public class LightsOut implements MouseListener {
 
 	JPanel gamePanel = new JPanel();
 	JFrame frame = new JFrame();
-	JPanel panel = new JPanel();
 	JTextField text = new JTextField();
 	JLabel[] label = new JLabel[25];
 	JButton[] button = new JButton[25];
@@ -36,7 +36,7 @@ public class LightsOut implements MouseListener {
 	GridLayout grid	= new GridLayout(5, 5);
 		
 			//2. Add 25 JLabels to your gamePanel (these are your lights)
-		panel.setLayout(grid);
+		gamePanel.setLayout(grid);
 
 			String labelNum ="0";
 		for(int i=0; i<=24; i++ ) {
@@ -47,9 +47,9 @@ public class LightsOut implements MouseListener {
 			
 			
 			label[i].setOpaque(true);
-			label[i].setBackground(Color.LIGHT_GRAY);
+			label[i].setBackground(Color.YELLOW);
 			
-			panel.add(label[i]);
+			gamePanel.add(label[i]);
 			label[i].addMouseListener(this);
 			/*			button[i] = new JButton();
 			button[i].setText(""+i);
@@ -70,10 +70,18 @@ public class LightsOut implements MouseListener {
 		
 		
 		//6. Add your panel to a frame
-		frame.add(panel);
+		frame.add(gamePanel);
 		frame.setSize(500,500);
 		//7. Set the size of the frame
 		frame.setVisible(true);
+		Random rand = new Random();
+		int randomInt = rand.nextInt(25);
+		for(int i=0; i<=randomInt;i++) {
+			int geneRandom = rand.nextInt(26);
+			if(geneRandom-1== i) {
+				label[i].setBackground(Color.LIGHT_GRAY);
+			}
+		}
 	}
 
 	private void setLayout(GridLayout gridLayout) {
@@ -88,10 +96,10 @@ public class LightsOut implements MouseListener {
 		JLabel labelClicked=(JLabel) e.getSource();
 		// 2. Get the number (position) of the light
 		String text = labelClicked.getText();
-		Integer.parseInt(text);
+		int pretend = Integer.parseInt(text);
 		System.out.println(text);
 		// 3. Now use the makeMove method to code which lights turn on and off.
-
+		makeMove(pretend);
 		// 4.Check if the player has won (e.g. all the lights are off)
 		// ---- HINT: use `getLightAtPosition` to get the light at each position
 		// ---------- use 'getBackground' to get the light color
@@ -122,11 +130,11 @@ public class LightsOut implements MouseListener {
 	}
 
 	void toggle(JLabel label) {
-		if (label.getBackground() == Color.WHITE) {
-			label.setBackground(Color.LIGHT_GRAY);
+		if (label.getBackground() == Color.LIGHT_GRAY) {
+			label.setBackground(Color.YELLOW);
 
 		} else {
-			label.setBackground(Color.WHITE);
+			label.setBackground(Color.LIGHT_GRAY);
 		}
 	}
 
