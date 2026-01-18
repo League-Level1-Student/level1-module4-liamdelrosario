@@ -57,7 +57,7 @@ public class LightsOut implements MouseListener {
 			button[i].setBackground(Color.LIGHT_GRAY);
 			button[i].addActionListener(this);
 			panel.add(button[i]);
-*/	
+*/			
 			
 		}
 			//3. Use setText() to add a position number to each light (0-24).
@@ -75,14 +75,14 @@ public class LightsOut implements MouseListener {
 		//7. Set the size of the frame
 		frame.setVisible(true);
 		Random rand = new Random();
-		int randomInt = rand.nextInt(25);
-		for(int i=0; i<=randomInt;i++) {
-			int geneRandom = rand.nextInt(26);
-			if(geneRandom-1== i) {
+		
+		for(int i = 0; i<=24; i++) {
+		if (rand.nextBoolean()==true) {
 				label[i].setBackground(Color.LIGHT_GRAY);
-			}
 		}
-	}
+		}
+		}
+
 
 	private void setLayout(GridLayout gridLayout) {
 		// TODO Auto-generated method stub
@@ -103,10 +103,21 @@ public class LightsOut implements MouseListener {
 		// 4.Check if the player has won (e.g. all the lights are off)
 		// ---- HINT: use `getLightAtPosition` to get the light at each position
 		// ---------- use 'getBackground' to get the light color
+		boolean allGray = true;
+		
+		for(int io =0; io<=24; io++) {
+		if(label[io].getBackground()==Color.YELLOW) {
+			allGray=!true;
+			System.out.println("You Did not do anything great");
+		}
 
+		}
+		if(allGray=true) {
+			System.out.println("Weak");
+		}
 		/** PART 3: RANDOMIZE YOUR BOARD **/
 		// Now that your game works can you make the game start with some lights on?
-
+		
 	}
 
 	void makeMove(int pos) {
