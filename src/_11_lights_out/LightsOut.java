@@ -104,16 +104,29 @@ public class LightsOut implements MouseListener {
 		// ---- HINT: use `getLightAtPosition` to get the light at each position
 		// ---------- use 'getBackground' to get the light color
 		boolean allGray = true;
-		
+		int forByFour = 0;
 		for(int io =0; io<=24; io++) {
 		if(label[io].getBackground()==Color.YELLOW) {
-			allGray=!true;
-			System.out.println("You Did not do anything great");
+			forByFour -=1;
+			allGray=false;
+		
 		}
-
+		if(label[io].getBackground()==Color.LIGHT_GRAY) {
+			forByFour +=1;
 		}
-		if(allGray=true) {
-			System.out.println("Weak");
+		System.out.println(forByFour);
+		}
+		if(allGray == true) {
+			System.out.println("You did it");
+		}
+		if(forByFour == 23) {
+			System.out.println("You are almost there.");
+		if(forByFour > 23) {
+			System.out.println("You are not close");
+		} 
+		if(forByFour == 24) {
+			System.out.println(" did it");
+		}
 		}
 		/** PART 3: RANDOMIZE YOUR BOARD **/
 		// Now that your game works can you make the game start with some lights on?
